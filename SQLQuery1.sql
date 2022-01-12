@@ -1,0 +1,1 @@
+﻿UPDATE Reduceri SET ID_client = 1 WHERE Id = 'C15';

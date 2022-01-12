@@ -119,20 +119,20 @@ namespace Proiect_Bercea_Anelise
 
         private void btnNext2_Click(object sender, RoutedEventArgs e)
         {
-            bileteVSource.View.MoveCurrentToNext();
+            clientiVSource.View.MoveCurrentToNext();
         }
         private void btnPrev2_Click(object sender, RoutedEventArgs e)
         {
-            bileteVSource.View.MoveCurrentToPrevious();
+            clientiVSource.View.MoveCurrentToPrevious();
         }
 
         private void btnNext3_Click(object sender, RoutedEventArgs e)
         {
-            bileteVSource.View.MoveCurrentToNext();
+            reduceriVSource.View.MoveCurrentToNext();
         }
         private void btnPrev3_Click(object sender, RoutedEventArgs e)
         {
-            bileteVSource.View.MoveCurrentToPrevious();
+            reduceriVSource.View.MoveCurrentToPrevious();
         }
 
 
@@ -455,22 +455,42 @@ namespace Proiect_Bercea_Anelise
             numeValidationBinding.Path = new PropertyPath("Nume");
             numeValidationBinding.NotifyOnValidationError = true;
             numeValidationBinding.Mode = BindingMode.TwoWay;
-            numeValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged; //string required
+            numeValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged; 
             numeValidationBinding.ValidationRules.Add(new StringNotEmpty());
-            numeValidationBinding.SetBinding(TextBox.TextProperty, numeValidationBinding);
+            numeValidationBinding.SetBinding(TextBox.TextProperty, numeValidationBinding); 
+        
+        
+            Binding denumireValidationBinding = new Binding();
+            denumireValidationBinding.Source = aeroporturiViewSource;
+            denumireValidationBinding.Path = new PropertyPath("Denumire");
+            denumireValidationBinding.NotifyOnValidationError = true;
+            denumireValidationBinding.Mode = BindingMode.TwoWay;
+            numeValidatdenumireValidationBindingionBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged; 
+            denumireValidationBinding.ValidationRules.Add(new StringMinLengthValidator());
+            denumireValidationBinding.SetBinding(TextBox.TextProperty, denumireValidationBinding);
        
-            
 
             Binding emailValidationBinding = new Binding();
             emailValidationBinding.Source = clientiViewSource;
             emailValidationBinding.Path = new PropertyPath("Email");
             emailValidationBinding.NotifyOnValidationError = true;
             emailValidationBinding.Mode = BindingMode.TwoWay;
-            emailValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged; //string required
+            emailValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
             emailValidationBinding.ValidationRules.Add(new EmailValidator());
-            emailValidationBinding.SetBinding(TextBox.TextProperty, emailValidationBinding);
-            
+            emailValidationBinding.SetBinding(TextBox.TextProperty, emailValidationBinding);  
+        
+        
+            Binding dataValidationBinding = new Binding();
+            dataValidationBinding.Source = bileteViewSource;
+            dataValidationBinding.Path = new PropertyPath("Data");
+            dataValidationBinding.NotifyOnValidationError = true;
+            dataValidationBinding.Mode = BindingMode.TwoWay;
+            dataValidationBinding.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged; 
+            dataValidationBinding.ValidationRules.Add(new DataBiletValidator());
+            dataValidationBinding.SetBinding(TextBox.TextProperty, dataValidationBinding);
+
         }
+
             */
 
     }
